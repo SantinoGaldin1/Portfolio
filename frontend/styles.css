@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    background-image: url(milad-fakurian-DjjaZybYx4I-unsplash\ \(1\).jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 45px;
+    padding-left: 8%;
+    padding-right: 8%;
+    z-index: 4;
+}
+
+.logo {
+    color: white;
+    font-size: calc(30px + 2vh);
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+span {
+    color: rebeccapurple;
+}
+
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 25px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: calc(14px + .5vh);
+}
+
+nav ul li a:hover {
+    color: rebeccapurple;
+    transition: .3s;
+}
+
+.btn {
+    text-decoration: none;
+    color: white;
+    background-color: rebeccapurple;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    font-weight: bold;
+    padding: 10px 25px;
+    transition: .4s;
+}
+
+.btn:hover {
+    transform: scale(1.2);
+}
+
+.content {
+    position: absolute;
+    top: 55%;
+    left: 8%;
+    transform: translateY(-50%);
+}
+
+h1{
+    color: white;
+    margin: 20px 0px 20px;
+    font-size: calc(30px + 7vh);
+}
+
+h3 {
+    color: white;
+    font-size: calc(10px + 2vh);
+    margin-bottom: 50px;
+}
+
+h4 {
+    color: rgb(192, 141, 255);
+    letter-spacing: 2px;
+    font-size: calc(10px + 2vh);
+}
+
+.newslatter form {
+    max-width: 100%;
+    position: relative;
+}
+
+.newslatter form input:first-child{
+    display: inline-block;
+    width: 100%;
+    padding: 14px 130px 14px 15px;
+    border: 2px solid rebeccapurple;
+    border-radius: 30px;
+    outline: none;
+}
+
+.newslatter form input:last-child{
+    position: absolute;
+    display: inline-block;
+    outline: none;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    background-color: rebeccapurple;
+    color: white;
+    box-shadow: 0px 0px 5px black,0px 0px 15px gray;
+    top: 6px;
+    right: 6px;
+    cursor: pointer;
+    font-size: calc(10px + .4vh);
+    transition: .3s;
+}
+
+.newslatter form input:last-child:hover{
+    background-color: rgb(192, 141, 255);
+ 
+}
+
+.imgPrincipal {
+    height: 80%;
+    position: absolute;
+    bottom: 10vh;
+    right: 15vw;
+    z-index: 1;
+}
+
+.about {
+    height: 100vh;
+    width: 100%;
+    padding: 100px 0px;
+    background-image: url(shubham-dhage-0aQ1lxP0wTs-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.about img {
+    height: auto;
+    width: 430px;
+    border-radius: 30px;
+}
+
+.sobremi-texto{
+    width: 550px;
+}
+
+.main {
+    width: 1130px;
+    max-width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.sobremi-texto h2{
+    color: white;
+    font-size: calc(20px + 5vh);
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.sobremi-texto h5{
+    color: white;
+    letter-spacing: 2px;
+    font-size: calc(10px + 2vh);
+    margin-bottom: 25px;
+    text-transform: capitalize;
+}
+
+.sobremi-texto p{
+    color: rgb(192, 141, 255);
+    letter-spacing: 1px;
+    line-height: 33px;
+    font-size: calc(15px + .5vh);
+    margin-bottom: 45px;
+}
+
+button {
+    font-size: calc(15px + .5vh);
+    text-decoration: none;
+    color: white;
+    background-color: rebeccapurple;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    font-weight: bold;
+    padding: 10px 25px;
+    transition: .27s;
+}
+
+button:hover {
+    border: 2px solid rebeccapurple;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.servicios {
+    height: 100vh;
+    width: 100%;
+    padding: 100px 0px;
+    background-image: url(milad-fakurian-t55GeRpETn0-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.title h2{
+    color: white;
+    font-size: calc(20px + 5vh);
+    width: 1130px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.card {
+    height: 365px;
+    width: 335px;
+    padding: 20px 35px;
+    background: #171717;
+    border-radius: 20px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card i{
+    font-size: calc(50px + 1vh);
+    display: block;
+    text-align: center;
+    margin: 25px 0px;
+    color: rebeccapurple;
+}
+
+h5{
+    color: white;
+    font-size: calc(15px + .8vh);
+    margin-bottom: 15px;
+}
+
+.pra p{
+    color: rgb(192, 141, 255);
+    font-size: calc(10px + .7vh);
+    line-height: 27px;
+    margin-bottom: 25px;
+}
+
+.card .button {
+    font-size: calc(15px + .3vh);
+    text-decoration: none;
+    color: white;
+    background-color: rebeccapurple;
+    border-radius: 30px;
+    font-weight: bold;
+    padding: 10px 25px;
+    transition: .3s;
+}
+
+.card .button:hover {
+    border: 2px solid rebeccapurple;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.habilidades {
+    height: 100vh;
+    width: 100%;
+    background-image: url();
+}
+
+.contacto {
+    width: 100%;
+    height: 290px;
+    background: #171717;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.contacto p{
+    color: white;
+    font-size: calc(20px + 1.3vh);
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.contacto .button-two{
+    font-size: calc(15px + .5vh);
+    text-decoration: none;
+    color: white;
+    background-color: rebeccapurple;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    font-weight: bold;
+    padding: 10px 25px;
+    transition: .27s;
+}
+
+.contacto .button-two:hover {
+    border: 2px solid rebeccapurple;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+footer{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: #101010;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p:nth-child(1){
+    font-size: calc(30px + 3vh);
+    color: white;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+footer p:nth-child(2){
+    color: white;
+    font-size: calc(16px + .3vh);
+    width: 500px;
+    text-align: center;
+    line-height: 26px;
+}
+
+.social {
+    display: flex;
+}
+
+.social a{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rebeccapurple;
+    border-radius: 50%;
+    margin: 22px 10px;
+    color: white;
+    text-decoration: none;
+    font-size: calc(15px + 1vh);
+}
+.social a:hover {
+    transform: scale(1.3);
+    transition: .3s;
+}
+
+.end {
+    position: absolute;
+    color: rgb(192, 141, 255);
+    bottom: 35px;
+    font-size: calc(16px + .3vh);
+}
