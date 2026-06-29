@@ -130,10 +130,15 @@ h4 {
 }
 
 .imgPrincipal {
-    height: 80%;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* centra la cara dejando algo de aire alrededor (no primer plano) */
+    object-position: 62% 32%;
     position: absolute;
-    bottom: 10vh;
-    right: 15vw;
+    bottom: 18vh;
+    right: 12vw;
     z-index: 1;
 }
 
