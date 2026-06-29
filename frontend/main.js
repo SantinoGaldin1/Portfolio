@@ -1,0 +1,59 @@
+// Landing full-page: una pantalla por gesto de scroll, con tween suave.
+// DURATION = perilla de suavidad (mas alto = mas lento/suave).
+const DURATION = 850;
+const sections = [...document.querySelectorAll('.screen')];
+let animating = false;
+
+const easeInOut = (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+
+function scrollToY(targetY) {
+    const startY = window.scrollY;
+    const dist = targetY - startY;
+    if (!dist) return;
+    let start = null;
+    animating = true;
+    function step(ts) {
+        if (start === null) start = ts;
+        const p = Math.min((ts - start) / DURATION, 1);
+        window.scrollTo(0, startY + dist * easeInOut(p));
+        if (p < 1) requestAnimationFrame(step);
+        else animating = false;
+    }
+    requestAnimationFrame(step);
+}
+
+// pantalla cuyo borde superior esta mas cerca del tope del viewport
+function currentIndex() {
+    let best = 0, min = Infinity;
+    sections.forEach((s, i) => {
+        const d = Math.abs(s.getBoundingClientRect().top);
+        if (d < min) { min = d; best = i; }
+    });
+    return best;
+}
+
+function go(dir) {
+    const i = currentIndex();
+    const n = Math.min(Math.max(i + dir, 0), sections.length - 1);
+    if (n === i) return;
+    scrollToY(window.scrollY + sections[n].getBoundingClientRect().top);
+}
+
+// rueda del mouse: un paso por gesto
+window.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    if (animating) return;
+    go(e.deltaY > 0 ? 1 : -1);
+}, { passive: false });
+
+// flechas: mismo tween que el scroll
+document.querySelectorAll('.nav-arrow').forEach((a) => {
+    a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) scrollToY(window.scrollY + t.getBoundingClientRect().top);
+    });
+});
+
+// ponytail: solo rueda de mouse. Touch/movil usa scroll nativo (sin tween);
+// agregar handler touchstart/touchmove si hace falta en celular.

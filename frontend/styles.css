@@ -5,14 +5,8 @@
     box-sizing: border-box;
 }
 
-/* Landing full-page: scroll engancha a la siguiente pantalla (nativo) */
-html {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-}
-
+/* Landing full-page: el scroll pasa de pantalla con tween suave (ver main.js) */
 .screen {
-    scroll-snap-align: start;
     position: relative;
 }
 
