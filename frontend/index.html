@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="hero">
+    <div id="inicio" class="hero screen">
         <nav>
             <h2 class="logo">Portfo<span>lio</span></h2>
             <ul>
@@ -40,10 +40,11 @@
                 </form>
             </div>
         </div>
+        <a href="#sobremi" class="nav-arrow down" aria-label="Siguiente"><i class="fas fa-chevron-down"></i></a>
     </div>
 
     <!-- Sobre mi -->
-    <section id="sobremi" class="about">
+    <section id="sobremi" class="about screen">
         <div class="main">
             <img src="FotoCV.jpg" alt="">
             <div class="sobremi-texto">
@@ -59,10 +60,12 @@
                 <button type="button">Hablemos</button>
             </div>
         </div>
+        <a href="#inicio" class="nav-arrow up" aria-label="Anterior"><i class="fas fa-chevron-up"></i></a>
+        <a href="#servicios" class="nav-arrow down" aria-label="Siguiente"><i class="fas fa-chevron-down"></i></a>
     </section>
 
     <!-- Servicios  -->
-    <div id="servicios" class="servicios">
+    <div id="servicios" class="servicios screen">
         <div class="title">
             <h2>Mis Servicios</h2>
         </div>
@@ -110,13 +113,18 @@
                 </div>
             </div>
         </div>
+        <a href="#sobremi" class="nav-arrow up" aria-label="Anterior"><i class="fas fa-chevron-up"></i></a>
+        <a href="#habilidades" class="nav-arrow down" aria-label="Siguiente"><i class="fas fa-chevron-down"></i></a>
     </div>
 
     <!-- Habilidades -->
-    <div id="habilidades" class="habilidades">
+    <div id="habilidades" class="habilidades screen">
         <h2>Habilidades</h2>
+        <a href="#servicios" class="nav-arrow up" aria-label="Anterior"><i class="fas fa-chevron-up"></i></a>
     </div>
 
+    <!-- Final: contacto + footer -->
+    <section class="final screen">
     <!-- Contacto  -->
     <div  id="contacto" class="contacto">
         <p>Hagamos una pagina web juntos!</p>
@@ -135,6 +143,7 @@
         </div>
         <p class="end">CopyRight By Santino Galdin</p>
     </footer>
+    </section>
 </body>
 
 </html>

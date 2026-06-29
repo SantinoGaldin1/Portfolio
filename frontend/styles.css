@@ -5,6 +5,55 @@
     box-sizing: border-box;
 }
 
+/* Landing full-page: scroll engancha a la siguiente pantalla (nativo) */
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.screen {
+    scroll-snap-align: start;
+    position: relative;
+}
+
+/* wrapper contacto+footer: llena la pantalla para que el snap no deje hueco */
+.final {
+    min-height: 100vh;
+    background: #101010;
+}
+
+/* circulo con flecha, efecto rebote, click navega a la pantalla destino */
+.nav-arrow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rebeccapurple;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    text-decoration: none;
+    z-index: 6;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .4);
+    animation: arrow-bounce 1.5s ease-in-out infinite;
+}
+
+.nav-arrow.down { bottom: 28px; }
+.nav-arrow.up { top: 28px; }
+
+.nav-arrow:hover {
+    background: rgb(192, 141, 255);
+}
+
+@keyframes arrow-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-12px); }
+}
+
 .hero {
     height: 100vh;
     width: 100%;
