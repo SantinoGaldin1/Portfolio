@@ -135,7 +135,7 @@ h4 {
     border-radius: 50%;
     object-fit: cover;
     /* centra la cara dejando algo de aire alrededor (no primer plano) */
-    object-position: 62% 48%;
+    object-position: 72% 48%;
     position: absolute;
     bottom: 18vh;
     right: 12vw;
