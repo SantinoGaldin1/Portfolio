@@ -129,19 +129,6 @@ h4 {
  
 }
 
-.imgPrincipal {
-    width: 340px;
-    height: 340px;
-    border-radius: 50%;
-    object-fit: cover;
-    /* centra la cara dejando algo de aire alrededor (no primer plano) */
-    object-position: 66% 48%;
-    position: absolute;
-    bottom: 18vh;
-    right: 12vw;
-    z-index: 1;
-}
-
 .about {
     height: 100vh;
     width: 100%;
