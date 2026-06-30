@@ -469,13 +469,15 @@ h5{
 .habilidades {
     height: 100vh;
     width: 100%;
-    background-image: url();
+    background-image: url(fondo-habilidades.svg);
+    background-size: cover;
+    background-position: center;
 }
 
 .contacto {
     width: 100%;
     height: 100vh;
-    background: #171717;
+    background: #171717 url(fondo-contacto.svg) center/cover;
     display: flex;
     align-items: center;
     flex-direction: column;

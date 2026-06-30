@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="32%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#2e1d54"/>
+      <stop offset="45%" stop-color="#160f2b"/>
+      <stop offset="100%" stop-color="#070510"/>
+    </radialGradient>
+    <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9a63f0"/>
+      <stop offset="55%" stop-color="#5a34a8"/>
+      <stop offset="100%" stop-color="#241640"/>
+    </linearGradient>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="70"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <g filter="url(#soft)" opacity="0.75">
+    <ellipse cx="420" cy="300" rx="400" ry="330" fill="#6a3fb5"/>
+    <ellipse cx="1240" cy="700" rx="460" ry="340" fill="#3b2a78"/>
+    <ellipse cx="1050" cy="180" rx="260" ry="220" fill="#4668b8"/>
+  </g>
+
+  <!-- forma rara: cinta retorcida -->
+  <path d="M300 640 C 460 360, 760 760, 980 460 S 1380 300, 1500 540 C 1360 620, 1120 520, 980 600 S 560 560, 420 720 Z"
+        fill="url(#ribbon)" opacity="0.55" filter="url(#soft)"/>
+  <path d="M380 560 C 560 380, 820 700, 1040 440 S 1360 360, 1460 540"
+        fill="none" stroke="#b58cff" stroke-width="3" opacity="0.35"/>
+
+  <rect width="1600" height="900" filter="url(#grain)" opacity="0.6"/>
+</svg>
