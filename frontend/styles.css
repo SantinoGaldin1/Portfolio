@@ -164,6 +164,52 @@ nav ul li a:hover {
     transform: scale(1);
 }
 
+/* hover: oscurece el fondo y muestra "Proyectos" */
+.carousel-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .55);
+    opacity: 0;
+    transition: opacity .4s ease;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.carousel:hover .carousel-overlay {
+    opacity: 1;
+}
+
+.carousel-overlay span {
+    color: white;
+    font-size: calc(22px + 1.2vh);
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    transform: translateY(12px);
+    transition: transform .4s ease;
+}
+
+.carousel:hover .carousel-overlay span {
+    transform: translateY(0);
+}
+
+.carousel-overlay span::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    margin: 8px auto 0;
+    background: rebeccapurple;
+    transition: width .4s ease .1s;
+}
+
+.carousel:hover .carousel-overlay span::after {
+    width: 60%;
+}
+
 .carousel .dots {
     position: absolute;
     bottom: 12px;
