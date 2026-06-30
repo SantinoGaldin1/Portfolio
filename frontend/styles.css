@@ -129,8 +129,23 @@ nav ul li a:hover {
     aspect-ratio: 16 / 9;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 55px rgba(0, 0, 0, .55);
+    border: 1px solid rgba(192, 141, 255, .5);
     z-index: 2;
+    animation: carousel-glow 3.5s ease-in-out infinite;
+}
+
+/* sombra iluminada que respira para llamar la atencion */
+@keyframes carousel-glow {
+    0%, 100% {
+        box-shadow: 0 20px 55px rgba(0, 0, 0, .55),
+                    0 0 18px rgba(102, 51, 153, .45),
+                    0 0 40px rgba(192, 141, 255, .25);
+    }
+    50% {
+        box-shadow: 0 20px 55px rgba(0, 0, 0, .55),
+                    0 0 28px rgba(102, 51, 153, .7),
+                    0 0 70px rgba(192, 141, 255, .5);
+    }
 }
 
 .carousel .slide {
