@@ -10,12 +10,6 @@
     position: relative;
 }
 
-/* wrapper contacto+footer: llena la pantalla para que el snap no deje hueco */
-.final {
-    min-height: 100vh;
-    background: #101010;
-}
-
 /* circulo con flecha, efecto rebote, click navega a la pantalla destino */
 .nav-arrow {
     position: absolute;
@@ -515,7 +509,7 @@ h5{
 footer{
     position: relative;
     width: 100%;
-    height: 400px;
+    min-height: 100vh;
     background: #101010;
     display: flex;
     flex-direction: column;
