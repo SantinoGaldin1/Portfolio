@@ -57,3 +57,27 @@ document.querySelectorAll('.nav-arrow').forEach((a) => {
 
 // ponytail: solo rueda de mouse. Touch/movil usa scroll nativo (sin tween);
 // agregar handler touchstart/touchmove si hace falta en celular.
+
+// Carrusel hero: crossfade automatico cada 5s + dots clickeables.
+const slides = [...document.querySelectorAll('.carousel .slide')];
+if (slides.length) {
+    const dotsWrap = document.querySelector('.carousel .dots');
+    let cur = 0;
+    const dots = slides.map((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', `Foto ${i + 1}`);
+        d.addEventListener('click', () => show(i, true));
+        dotsWrap.appendChild(d);
+        return d;
+    });
+    let timer = setInterval(() => show(cur + 1), 5000);
+    function show(i, manual) {
+        slides[cur].classList.remove('active');
+        dots[cur].classList.remove('active');
+        cur = (i + slides.length) % slides.length;
+        slides[cur].classList.add('active');
+        dots[cur].classList.add('active');
+        if (manual) { clearInterval(timer); timer = setInterval(() => show(cur + 1), 5000); }
+    }
+}
