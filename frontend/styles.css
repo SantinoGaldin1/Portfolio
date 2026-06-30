@@ -189,7 +189,7 @@ nav ul li a:hover {
     letter-spacing: 5px;
     text-transform: uppercase;
     transform: translateY(12px);
-    transition: transform .4s ease;
+    transition: transform .25s ease;
 }
 
 .carousel:hover .carousel-overlay span {
