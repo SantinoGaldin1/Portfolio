@@ -122,10 +122,10 @@ nav ul li a:hover {
 .carousel {
     position: absolute;
     top: 50%;
-    right: 6%;
+    right: 12%;
     transform: translateY(-50%);
-    width: 460px;
-    max-width: 42vw;
+    width: 560px;
+    max-width: 48vw;
     aspect-ratio: 16 / 9;
     border-radius: 16px;
     overflow: hidden;
