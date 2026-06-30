@@ -46,8 +46,8 @@ window.addEventListener('wheel', (e) => {
     go(e.deltaY > 0 ? 1 : -1);
 }, { passive: false });
 
-// flechas y logo: mismo tween que el scroll
-document.querySelectorAll('.nav-arrow, .logo').forEach((a) => {
+// flechas, logo y menu: mismo tween que el scroll
+document.querySelectorAll('.nav-arrow, .logo, nav ul a').forEach((a) => {
     a.addEventListener('click', (e) => {
         e.preventDefault();
         const t = document.querySelector(a.getAttribute('href'));

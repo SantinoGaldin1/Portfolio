@@ -68,14 +68,21 @@
 }
 
 nav {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 30px;
     padding-top: 45px;
     padding-left: 8%;
     padding-right: 8%;
     z-index: 4;
+}
+
+/* menu centrado en el header; Email queda a la derecha */
+nav ul {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* logo fijo en pantalla, clickeable -> inicio (tween en main.js) */
@@ -469,7 +476,7 @@ h5{
 .habilidades {
     height: 100vh;
     width: 100%;
-    background-image: url(fondo-habilidades.svg);
+    background-image: url(stanislav-oNFNMJg6uCo-unsplash.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -477,7 +484,7 @@ h5{
 .contacto {
     width: 100%;
     height: 100vh;
-    background: #171717 url(fondo-contacto.svg) center/cover;
+    background: #171717 url(milad-fakurian-4x3jVxe0PiM-unsplash.jpg) center/cover;
     display: flex;
     align-items: center;
     flex-direction: column;
