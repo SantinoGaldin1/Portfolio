@@ -76,18 +76,25 @@
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 30px;
     padding-top: 45px;
     padding-left: 8%;
     padding-right: 8%;
     z-index: 4;
 }
 
+/* logo fijo en pantalla, clickeable -> inicio (tween en main.js) */
 .logo {
+    position: fixed;
+    top: 38px;
+    left: 8%;
     color: white;
     font-size: calc(30px + 2vh);
     letter-spacing: 1px;
     cursor: pointer;
+    text-decoration: none;
+    z-index: 20;
 }
 
 span {
