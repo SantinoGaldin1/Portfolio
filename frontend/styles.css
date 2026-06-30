@@ -87,14 +87,27 @@ nav {
 /* logo fijo en pantalla, clickeable -> inicio (tween en main.js) */
 .logo {
     position: fixed;
-    top: 38px;
+    top: 30px;
     left: 8%;
     color: white;
-    font-size: calc(30px + 2vh);
+    font-size: calc(22px + 1.4vh);
     letter-spacing: 1px;
     cursor: pointer;
     text-decoration: none;
     z-index: 20;
+    padding: 10px 22px;
+    border-radius: 40px;
+    border: 1px solid rgba(192, 141, 255, .5);
+    background: rgba(20, 12, 35, .35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
+    transition: .3s;
+}
+
+.logo:hover {
+    border-color: rgba(192, 141, 255, .9);
+    box-shadow: 0 6px 24px rgba(102, 51, 153, .55);
 }
 
 span {
