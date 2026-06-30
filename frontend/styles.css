@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 /* Landing full-page: el scroll pasa de pantalla con tween suave (ver main.js) */
 .screen {
     position: relative;
@@ -567,4 +571,110 @@ footer p:nth-child(2){
 .social a:hover {
     transform: scale(1.3);
     transition: .3s;
+}
+
+/* ============================================================
+   RESPONSIVE — tablet y mobile. No altera el layout de escritorio.
+   ============================================================ */
+@media (max-width: 900px) {
+
+    /* secciones: dejan de ser rigidas a 100vh para que el contenido entre */
+    .hero, .about, .servicios, .habilidades, .contacto {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* --- Header / nav --- */
+    nav {
+        flex-direction: column;
+        gap: 12px;
+        justify-content: center;
+        padding: 84px 5% 0;
+    }
+    nav ul {
+        position: static;
+        transform: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li { padding: 6px 12px; }
+    nav ul li a { font-size: 15px; }
+    .btn { padding: 8px 22px; }
+
+    .logo {
+        top: 16px;
+        font-size: 20px;
+        padding: 8px 16px;
+    }
+
+    /* --- Hero: contenido y carrusel apilados y centrados --- */
+    .hero {
+        display: flex;
+        flex-direction: column;
+    }
+    .content {
+        position: static;
+        transform: none;
+        text-align: center;
+        padding: 28px 6% 0;
+    }
+    h1 { font-size: 2.6rem; margin: 12px 0; }
+    h3 { font-size: 1.1rem; margin-bottom: 24px; }
+    h4 { font-size: 1rem; }
+
+    .carousel {
+        position: static;
+        transform: none;
+        right: auto;
+        width: 90%;
+        max-width: 520px;
+        margin: 10px auto 90px;
+    }
+
+    /* --- Sobre mi --- */
+    .about { padding: 90px 5%; display: flex; align-items: center; }
+    .main {
+        flex-direction: column;
+        width: 100%;
+        gap: 26px;
+    }
+    .about img { width: 70%; max-width: 300px; }
+    .sobremi-texto { width: 100%; text-align: center; }
+    .sobremi-texto h2 { font-size: 2rem; }
+    .sobremi-texto h5 { font-size: 1.1rem; margin-bottom: 18px; }
+    .sobremi-texto p { font-size: 1rem; line-height: 26px; margin-bottom: 0; }
+
+    /* --- Servicios: tarjetas apiladas --- */
+    .servicios { padding: 90px 5%; }
+    .title h2 { width: auto; font-size: 2rem; margin: 0 auto 22px; }
+    .box {
+        flex-direction: column;
+        min-height: auto;
+        gap: 18px;
+    }
+    .card {
+        width: 100%;
+        max-width: 340px;
+        height: auto;
+        margin: 0 auto;
+        padding: 26px 28px;
+    }
+
+    /* --- Contacto + footer --- */
+    .contacto { padding: 90px 5% 170px; }
+    .contacto p { font-size: 1.4rem; text-align: center; }
+    footer p:nth-child(2) { font-size: .9rem; line-height: 20px; }
+}
+
+@media (max-width: 560px) {
+    h1 { font-size: 2.1rem; }
+    h3 { font-size: 1rem; }
+    .nav-arrow { width: 46px; height: 46px; font-size: 19px; }
+    .nav-arrow.cta { width: auto; height: auto; padding: 11px 22px; font-size: 14px; }
+    .sobremi-texto h2 { font-size: 1.7rem; }
+    .title h2 { font-size: 1.7rem; }
+    .contacto p { font-size: 1.2rem; }
+    nav ul li { padding: 5px 9px; }
+    nav ul li a { font-size: 14px; }
 }
