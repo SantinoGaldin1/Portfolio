@@ -39,6 +39,18 @@
 .nav-arrow.down { bottom: 28px; }
 .nav-arrow.up { top: 28px; }
 
+/* version con texto: "Vamos a empezar V" en el hero */
+.nav-arrow.cta {
+    width: auto;
+    height: auto;
+    border-radius: 30px;
+    padding: 13px 28px;
+    gap: 10px;
+    font-size: calc(14px + .4vh);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
 .nav-arrow:hover {
     background: rgb(192, 141, 255);
 }
