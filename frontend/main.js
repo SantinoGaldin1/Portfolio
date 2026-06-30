@@ -39,8 +39,12 @@ function go(dir) {
     scrollToY(window.scrollY + sections[n].getBoundingClientRect().top);
 }
 
-// rueda del mouse: un paso por gesto
+// rueda del mouse: un paso por gesto. Solo en pantallas anchas:
+// en mobile/ventana angosta el contenido apilado supera el viewport y
+// debe scrollear nativo (sino se saltea contenido).
+const fullPageActivo = () => window.innerWidth > 900;
 window.addEventListener('wheel', (e) => {
+    if (!fullPageActivo()) return;
     e.preventDefault();
     if (animating) return;
     go(e.deltaY > 0 ? 1 : -1);
