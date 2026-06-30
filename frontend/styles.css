@@ -511,7 +511,7 @@ footer{
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 26px 0 14px;
+    padding: 14px 0 14px;
     background: #101010;
     display: flex;
     flex-direction: column;
@@ -522,7 +522,8 @@ footer{
 footer p:nth-child(1){
     font-size: calc(14px + 1vh);
     color: white;
-    margin-bottom: 10px;
+    margin-top: 14px;
+    margin-bottom: 8px;
     font-weight: bold;
 }
 
