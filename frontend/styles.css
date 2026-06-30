@@ -51,6 +51,11 @@
     letter-spacing: 1px;
 }
 
+/* el span global es morado; aca debe ser blanco como la flecha */
+.nav-arrow.cta span {
+    color: white;
+}
+
 .nav-arrow:hover {
     background: rgb(192, 141, 255);
 }
