@@ -476,9 +476,11 @@ h5{
 .habilidades {
     height: 100vh;
     width: 100%;
+    background-color: #000;
     background-image: url(stanislav-oNFNMJg6uCo-unsplash.jpg);
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .contacto {
