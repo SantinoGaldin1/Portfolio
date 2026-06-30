@@ -1,38 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <radialGradient id="bg2" cx="68%" cy="40%" r="90%">
-      <stop offset="0%" stop-color="#1f2a55"/>
-      <stop offset="48%" stop-color="#141029"/>
-      <stop offset="100%" stop-color="#06050d"/>
-    </radialGradient>
-    <linearGradient id="wave" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0%" stop-color="#5466d8"/>
-      <stop offset="55%" stop-color="#6a3fb5"/>
-      <stop offset="100%" stop-color="#1c1838"/>
+    <linearGradient id="silver2" x1="0.9" y1="0.1" x2="0.1" y2="0.95">
+      <stop offset="0%" stop-color="#ededed"/>
+      <stop offset="24%" stop-color="#aeaeae"/>
+      <stop offset="50%" stop-color="#525252"/>
+      <stop offset="74%" stop-color="#262626"/>
+      <stop offset="100%" stop-color="#0d0d0d"/>
     </linearGradient>
-    <filter id="soft2" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="75"/>
+    <radialGradient id="glow2" cx="42%" cy="55%" r="72%">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <filter id="soft2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6"/>
     </filter>
     <filter id="grain2">
-      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
       <feColorMatrix type="saturate" values="0"/>
-      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+      <feComponentTransfer><feFuncA type="linear" slope="0.04"/></feComponentTransfer>
     </filter>
   </defs>
 
-  <rect width="1600" height="900" fill="url(#bg2)"/>
+  <rect width="1600" height="900" fill="url(#glow2)"/>
 
-  <g filter="url(#soft2)" opacity="0.75">
-    <ellipse cx="1180" cy="280" rx="430" ry="350" fill="#4054b0"/>
-    <ellipse cx="360" cy="660" rx="420" ry="330" fill="#5a34a8"/>
-    <ellipse cx="760" cy="160" rx="260" ry="220" fill="#7b4bd0"/>
-  </g>
+  <!-- forma 3D plateada grande (onda) -->
+  <path filter="url(#soft2)" fill="url(#silver2)" d="
+    M 180 520
+    C 300 300, 560 260, 720 360
+    C 880 460, 1000 300, 1200 280
+    C 1420 258, 1520 420, 1420 560
+    C 1330 686, 1140 600, 1000 660
+    C 840 728, 700 600, 540 640
+    C 380 678, 300 720, 180 520 Z"/>
+  <!-- brillo -->
+  <path fill="none" stroke="#ffffff" stroke-width="5" opacity="0.5" stroke-linecap="round" d="
+    M 1380 360 C 1460 470, 1410 560, 1280 600 C 1140 644, 1020 580, 940 620"/>
 
-  <!-- forma rara: ola retorcida -->
-  <path d="M180 520 C 420 320, 640 700, 900 480 S 1340 380, 1500 600 C 1320 700, 1060 560, 880 660 S 420 700, 220 640 Z"
-        fill="url(#wave)" opacity="0.5" filter="url(#soft2)"/>
-  <path d="M260 470 C 480 300, 720 660, 980 460 S 1360 420, 1480 600"
-        fill="none" stroke="#8fb0ff" stroke-width="3" opacity="0.32"/>
-
-  <rect width="1600" height="900" filter="url(#grain2)" opacity="0.6"/>
+  <rect width="1600" height="900" filter="url(#grain2)" opacity="0.5"/>
 </svg>
