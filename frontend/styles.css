@@ -511,7 +511,7 @@ footer{
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 16px 0 22px;
+    padding: 10px 0 14px;
     background: #101010;
     display: flex;
     flex-direction: column;
@@ -520,18 +520,19 @@ footer{
 }
 
 footer p:nth-child(1){
-    font-size: calc(20px + 2vh);
+    font-size: calc(14px + 1vh);
     color: white;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
 footer p:nth-child(2){
     color: white;
-    font-size: calc(16px + .3vh);
-    width: 500px;
+    font-size: calc(11px + .2vh);
+    width: 460px;
+    max-width: 90%;
     text-align: center;
-    line-height: 26px;
+    line-height: 20px;
 }
 
 .social {
@@ -539,17 +540,17 @@ footer p:nth-child(2){
 }
 
 .social a{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rebeccapurple;
     border-radius: 50%;
-    margin: 14px 10px;
+    margin: 10px 8px;
     color: white;
     text-decoration: none;
-    font-size: calc(15px + 1vh);
+    font-size: calc(13px + .7vh);
 }
 .social a:hover {
     transform: scale(1.3);
