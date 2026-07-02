@@ -708,21 +708,39 @@ footer p:nth-child(2){
     .sobremi-texto h5 { font-size: 1.1rem; margin-bottom: 18px; }
     .sobremi-texto p { font-size: 1rem; line-height: 26px; margin-bottom: 0; }
 
-    /* --- Servicios: tarjetas apiladas --- */
-    .servicios { padding: 90px 5%; }
-    .title h2 { width: auto; font-size: 2rem; margin: 0 auto 22px; }
+    /* --- Servicios: tarjetas compactas horizontales para entrar en 1 pantalla --- */
+    .servicios {
+        padding: 80px 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .title h2 { width: auto; font-size: 1.9rem; margin: 0 auto 20px; }
     .box {
         flex-direction: column;
         min-height: auto;
-        gap: 18px;
+        gap: 14px;
     }
     .card {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-align: left;
         width: 100%;
-        max-width: 340px;
+        max-width: 440px;
         height: auto;
         margin: 0 auto;
-        padding: 26px 28px;
+        padding: 16px 18px;
     }
+    .card i {
+        margin: 0;
+        font-size: 30px;
+        flex-shrink: 0;
+    }
+    .card h5 { margin-bottom: 4px; }
+    .pra { display: flex; flex-direction: column; align-items: flex-start; }
+    .pra p { margin-bottom: 8px; line-height: 19px; font-size: .85rem; text-align: left; }
+    .card .button { padding: 7px 18px; font-size: .85rem; }
 
     /* --- Contacto + footer --- */
     .contacto { padding: 90px 5% 170px; }
