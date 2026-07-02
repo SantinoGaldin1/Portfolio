@@ -670,10 +670,17 @@ h5{
     transform: rotate(45deg);
 }
 
-.ms-error {
-    color: #ff6b81;
-    font-size: 13px;
-    margin-top: -6px;
+/* input oculto que dispara el popup nativo del navegador anclado al campo */
+.ms-required {
+    position: absolute;
+    left: 20px;
+    bottom: 6px;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .enviar {

@@ -76,7 +76,7 @@ const form = document.getElementById('contact-form');
 if (form) {
     const ms = document.getElementById('ms-servicios');
     const msToggle = ms.querySelector('.ms-toggle span');
-    const msError = form.querySelector('.ms-error');
+    const msRequired = ms.querySelector('.ms-required');
     const otroChk = ms.querySelector('.ms-otro');
     const otroInput = form.querySelector('.otro-input');
     const checks = [...ms.querySelectorAll('input[name="servicio"]')];
@@ -98,18 +98,26 @@ if (form) {
         return `${sel[0]}, ${sel[1]}  +${sel.length - 2}`;
     };
 
+    // mantiene el input required en sync con la seleccion
+    const sincronizarRequired = () => {
+        const alguno = checks.some((x) => x.checked);
+        msRequired.value = alguno ? 'ok' : '';
+        msRequired.setCustomValidity(alguno ? '' : 'Elegí al menos un servicio.');
+    };
+    sincronizarRequired();
+
     checks.forEach((c) => c.addEventListener('change', () => {
         const sel = checks.filter((x) => x.checked).map((x) => x.value);
         msToggle.textContent = etiquetaServicios(sel);
         otroInput.hidden = !otroChk.checked;
-        if (sel.length) msError.hidden = true;
+        sincronizarRequired();
     }));
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        if (!form.email.value.trim() || !form.email.checkValidity()) { form.email.reportValidity(); return; }
         if (!form.nombre.value.trim()) { form.nombre.reportValidity(); return; }
-        if (!checks.some((x) => x.checked)) { msError.hidden = false; ms.classList.add('open'); return; }
+        if (!form.email.value.trim() || !form.email.checkValidity()) { form.email.reportValidity(); return; }
+        if (!msRequired.checkValidity()) { msRequired.reportValidity(); return; }
 
         // exito (frontend): mostrar popup y limpiar
         popup.hidden = false;
@@ -117,6 +125,7 @@ if (form) {
         ms.classList.remove('open');
         otroInput.hidden = true;
         msToggle.textContent = 'Elegí uno o varios servicios';
+        sincronizarRequired();
     });
 
     const cerrar = () => { popup.hidden = true; };
