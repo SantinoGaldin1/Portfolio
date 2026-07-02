@@ -50,6 +50,15 @@ window.addEventListener('wheel', (e) => {
     go(e.deltaY > 0 ? 1 : -1);
 }, { passive: false });
 
+// menu hamburguesa (mobile): abre/cierra el desplegable
+const hamburger = document.querySelector('.hamburger');
+const navEl = document.querySelector('nav');
+if (hamburger && navEl) {
+    hamburger.addEventListener('click', () => navEl.classList.toggle('open'));
+    navEl.querySelectorAll('ul a').forEach((a) =>
+        a.addEventListener('click', () => navEl.classList.remove('open')));
+}
+
 // flechas, logo y menu: mismo tween que el scroll
 document.querySelectorAll('.nav-arrow, .logo, nav ul a').forEach((a) => {
     a.addEventListener('click', (e) => {
