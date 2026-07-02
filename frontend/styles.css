@@ -594,10 +594,10 @@ footer p:nth-child(2){
 
     /* logo centrado arriba */
     .logo {
-        top: 16px;
+        top: 18px;
         left: 6%;
         font-size: 20px;
-        padding: 8px 16px;
+        padding: 9px 16px;
     }
 
     /* Email fuera de la pantalla principal en mobile */
@@ -673,6 +673,7 @@ footer p:nth-child(2){
     /* texto y carrusel agrupados y centrados (levemente arriba por padding-bottom) */
     .content {
         position: relative;
+        left: 0;
         z-index: 2;
         transform: none;
         text-align: center;
