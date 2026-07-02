@@ -91,10 +91,16 @@ if (form) {
         if (!ms.contains(e.target)) ms.classList.remove('open');
     });
 
-    // actualizar etiqueta + mostrar campo "Otro"
+    // etiqueta: 1 nombre; si hay mas, "nombre +N" (una sola linea)
+    const etiquetaServicios = (sel) => {
+        if (!sel.length) return 'Elegí uno o varios servicios';
+        if (sel.length === 1) return sel[0];
+        return `${sel[0]}  +${sel.length - 1}`;
+    };
+
     checks.forEach((c) => c.addEventListener('change', () => {
         const sel = checks.filter((x) => x.checked).map((x) => x.value);
-        msToggle.textContent = sel.length ? sel.join(', ') : 'Elegí uno o varios servicios';
+        msToggle.textContent = etiquetaServicios(sel);
         otroInput.hidden = !otroChk.checked;
         if (sel.length) msError.hidden = true;
     }));

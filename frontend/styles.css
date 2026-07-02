@@ -526,7 +526,7 @@ h5{
     gap: 14px;
 }
 
-#contact-form input,
+#contact-form input:not([type="checkbox"]),
 #contact-form textarea,
 .ms-toggle {
     width: 100%;
@@ -570,7 +570,18 @@ h5{
     cursor: pointer;
 }
 
-.ms-toggle i { transition: .25s; }
+/* texto del toggle: mismo gris que los campos, en una sola linea con ellipsis */
+.ms-toggle span {
+    color: inherit;
+    flex: 1;
+    min-width: 0;
+    margin-right: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ms-toggle i { transition: .25s; flex-shrink: 0; }
 .multiselect.open .ms-toggle i { transform: rotate(180deg); }
 
 .ms-panel {
