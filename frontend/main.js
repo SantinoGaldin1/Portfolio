@@ -91,11 +91,11 @@ if (form) {
         if (!ms.contains(e.target)) ms.classList.remove('open');
     });
 
-    // etiqueta: 1 nombre; si hay mas, "nombre +N" (una sola linea)
+    // etiqueta: hasta 2 nombres; del tercero en adelante "+N" (una sola linea)
     const etiquetaServicios = (sel) => {
         if (!sel.length) return 'Elegí uno o varios servicios';
-        if (sel.length === 1) return sel[0];
-        return `${sel[0]}  +${sel.length - 1}`;
+        if (sel.length <= 2) return sel.join(', ');
+        return `${sel[0]}, ${sel[1]}  +${sel.length - 2}`;
     };
 
     checks.forEach((c) => c.addEventListener('change', () => {

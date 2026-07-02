@@ -598,8 +598,10 @@ h5{
     border-radius: 12px;
     box-shadow: 0 16px 34px rgba(0, 0, 0, .55);
     z-index: 5;
-    max-height: 240px;
-    overflow: auto;
+    /* alto acotado: al agregar mas servicios, scrollea sin crecer ni cambiar tamaños */
+    max-height: 216px;
+    overflow-y: auto;
+    overflow-x: hidden;
     /* animacion suave abrir/cerrar */
     opacity: 0;
     visibility: hidden;
@@ -614,6 +616,14 @@ h5{
     transform: translateY(0);
     pointer-events: auto;
 }
+
+/* scrollbar del panel */
+.ms-panel::-webkit-scrollbar { width: 8px; }
+.ms-panel::-webkit-scrollbar-thumb {
+    background: rgba(192, 141, 255, .4);
+    border-radius: 8px;
+}
+.ms-panel::-webkit-scrollbar-track { background: transparent; }
 
 .ms-panel label {
     display: flex;
