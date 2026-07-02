@@ -493,11 +493,181 @@ h5{
 .contacto {
     width: 100%;
     height: 100vh;
+    padding: 40px 20px 175px;
     background: #171717 url(milad-fakurian-4x3jVxe0PiM-unsplash.jpg) center/cover;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+}
+
+/* --- Formulario de contacto --- */
+.form-card {
+    width: 460px;
+    max-width: 92%;
+    background: #17141f;
+    border: 1px solid rgba(192, 141, 255, .35);
+    border-radius: 18px;
+    padding: 30px 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .55), 0 0 30px rgba(102, 51, 153, .25);
+    z-index: 2;
+}
+
+.form-titulo {
+    color: #fff;
+    font-size: calc(18px + 1vh);
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#contact-form input,
+#contact-form textarea,
+.ms-toggle {
+    width: 100%;
+    padding: 12px 14px;
+    background: #211c2e;
+    border: 1px solid rgba(192, 141, 255, .25);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: .25s;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: #9a90b0;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus,
+.ms-toggle:focus,
+.multiselect.open .ms-toggle {
+    border-color: rebeccapurple;
+    box-shadow: 0 0 0 3px rgba(102, 51, 153, .3);
+}
+
+#contact-form textarea {
+    resize: vertical;
+    min-height: 72px;
+}
+
+.multiselect { position: relative; }
+
+.ms-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    color: #cfc6e6;
+    cursor: pointer;
+}
+
+.ms-toggle i { transition: .25s; }
+.multiselect.open .ms-toggle i { transform: rotate(180deg); }
+
+.ms-panel {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    padding: 6px;
+    background: #211c2e;
+    border: 1px solid rgba(192, 141, 255, .3);
+    border-radius: 10px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .5);
+    z-index: 5;
+    max-height: 210px;
+    overflow: auto;
+}
+.multiselect.open .ms-panel { display: flex; }
+
+.ms-panel label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 8px;
+    color: #eee;
+    font-size: 14px;
+    cursor: pointer;
+}
+.ms-panel label:hover { background: rgba(192, 141, 255, .12); }
+.ms-panel input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: rebeccapurple;
+}
+
+.ms-error {
+    color: #ff6b81;
+    font-size: 13px;
+    margin-top: -6px;
+}
+
+.enviar {
+    margin-top: 4px;
+    padding: 13px;
+    border: none;
+    border-radius: 12px;
+    background: rebeccapurple;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .25s;
+}
+.enviar:hover { background: rgb(192, 141, 255); }
+
+/* popup de exito */
+.popup-exito {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+.popup-exito[hidden] { display: none; }
+
+.popup-box {
+    background: #17141f;
+    border: 1px solid rgba(192, 141, 255, .4);
+    border-radius: 18px;
+    padding: 34px 36px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .6), 0 0 40px rgba(102, 51, 153, .4);
+    animation: popIn .3s ease;
+}
+.popup-box i { font-size: 48px; color: rgb(160, 100, 240); margin-bottom: 14px; }
+.popup-box p { color: #fff; font-size: 19px; font-weight: bold; margin-bottom: 20px; }
+.popup-cerrar {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 30px;
+    background: rebeccapurple;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .25s;
+}
+.popup-cerrar:hover { background: rgb(192, 141, 255); }
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(.9); }
+    to { opacity: 1; transform: scale(1); }
 }
 .contacto p{
     color: white;

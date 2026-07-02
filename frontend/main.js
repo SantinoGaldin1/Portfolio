@@ -71,6 +71,53 @@ document.querySelectorAll('.nav-arrow, .logo, nav ul a').forEach((a) => {
 // ponytail: solo rueda de mouse. Touch/movil usa scroll nativo (sin tween);
 // agregar handler touchstart/touchmove si hace falta en celular.
 
+// Formulario de contacto (solo frontend por ahora; sin envio real).
+const form = document.getElementById('contact-form');
+if (form) {
+    const ms = document.getElementById('ms-servicios');
+    const msToggle = ms.querySelector('.ms-toggle span');
+    const msError = form.querySelector('.ms-error');
+    const otroChk = ms.querySelector('.ms-otro');
+    const otroInput = form.querySelector('.otro-input');
+    const checks = [...ms.querySelectorAll('input[name="servicio"]')];
+    const popup = document.getElementById('popup-exito');
+
+    // abrir/cerrar el desplegable
+    ms.querySelector('.ms-toggle').addEventListener('click', (e) => {
+        e.stopPropagation();
+        ms.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+        if (!ms.contains(e.target)) ms.classList.remove('open');
+    });
+
+    // actualizar etiqueta + mostrar campo "Otro"
+    checks.forEach((c) => c.addEventListener('change', () => {
+        const sel = checks.filter((x) => x.checked).map((x) => x.value);
+        msToggle.textContent = sel.length ? sel.join(', ') : 'Elegí uno o varios servicios';
+        otroInput.hidden = !otroChk.checked;
+        if (sel.length) msError.hidden = true;
+    }));
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!form.email.value.trim() || !form.email.checkValidity()) { form.email.reportValidity(); return; }
+        if (!form.nombre.value.trim()) { form.nombre.reportValidity(); return; }
+        if (!checks.some((x) => x.checked)) { msError.hidden = false; ms.classList.add('open'); return; }
+
+        // exito (frontend): mostrar popup y limpiar
+        popup.hidden = false;
+        form.reset();
+        ms.classList.remove('open');
+        otroInput.hidden = true;
+        msToggle.textContent = 'Elegí uno o varios servicios';
+    });
+
+    const cerrar = () => { popup.hidden = true; };
+    popup.querySelector('.popup-cerrar').addEventListener('click', cerrar);
+    popup.addEventListener('click', (e) => { if (e.target === popup) cerrar(); });
+}
+
 // Carrusel hero: crossfade automatico cada 5s + dots clickeables.
 const slides = [...document.querySelectorAll('.carousel .slide')];
 if (slides.length) {

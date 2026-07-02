@@ -130,8 +130,39 @@
 
     <!-- Contacto (ultima pantalla, footer al pie) -->
     <div id="contacto" class="contacto screen">
-        <p>Hagamos una página web juntos!</p>
-        <a class="button-two" href="#">Contáctame</a>
+        <div class="form-card">
+            <h2 class="form-titulo">Hagamos una página web juntos!</h2>
+            <form id="contact-form" novalidate>
+                <input type="email" name="email" placeholder="Email" required autocomplete="email">
+                <input type="text" name="nombre" placeholder="Nombre" required autocomplete="name">
+
+                <div class="multiselect" id="ms-servicios">
+                    <button type="button" class="ms-toggle"><span>Elegí uno o varios servicios</span><i class="fas fa-chevron-down"></i></button>
+                    <div class="ms-panel">
+                        <label><input type="checkbox" name="servicio" value="Diseño Web"> Diseño Web</label>
+                        <label><input type="checkbox" name="servicio" value="Desarrollo Web"> Desarrollo Web</label>
+                        <label><input type="checkbox" name="servicio" value="Diseño Gráfico"> Diseño Gráfico</label>
+                        <label><input type="checkbox" name="servicio" value="Otro" class="ms-otro"> Otro</label>
+                    </div>
+                </div>
+                <input type="text" name="otro" class="otro-input" placeholder="¿Qué servicio necesitás?" hidden>
+                <p class="ms-error" hidden>Elegí al menos un servicio.</p>
+
+                <textarea name="detalles" placeholder="Detalles (opcional)" rows="3"></textarea>
+
+                <button type="submit" class="enviar">Enviar solicitud</button>
+            </form>
+        </div>
+
+        <!-- popup de exito (in-app) -->
+        <div class="popup-exito" id="popup-exito" hidden>
+            <div class="popup-box">
+                <i class="fas fa-circle-check"></i>
+                <p>¡Solicitud enviada con éxito!</p>
+                <button type="button" class="popup-cerrar">Cerrar</button>
+            </div>
+        </div>
+
         <a href="#habilidades" class="nav-arrow up" aria-label="Anterior"><i class="fas fa-chevron-up"></i></a>
 
         <!-- Footer  -->
