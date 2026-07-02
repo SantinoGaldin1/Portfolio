@@ -106,10 +106,23 @@ if (form) {
     };
     sincronizarRequired();
 
+    const MSJ_OTRO = 'Especificá qué otro servicio necesitás';
+
+    // muestra/oculta el campo "Otro" y lo hace obligatorio cuando corresponde
+    const actualizarOtro = () => {
+        const on = otroChk.checked;
+        otroInput.hidden = !on;
+        otroInput.required = on;
+        otroInput.setCustomValidity(on && !otroInput.value.trim() ? MSJ_OTRO : '');
+    };
+    otroInput.addEventListener('input', () => {
+        if (otroInput.required) otroInput.setCustomValidity(otroInput.value.trim() ? '' : MSJ_OTRO);
+    });
+
     checks.forEach((c) => c.addEventListener('change', () => {
         const sel = checks.filter((x) => x.checked).map((x) => x.value);
         msToggle.textContent = etiquetaServicios(sel);
-        otroInput.hidden = !otroChk.checked;
+        actualizarOtro();
         sincronizarRequired();
     }));
 
@@ -118,13 +131,14 @@ if (form) {
         if (!form.nombre.value.trim()) { form.nombre.reportValidity(); return; }
         if (!form.email.value.trim() || !form.email.checkValidity()) { form.email.reportValidity(); return; }
         if (!msRequired.checkValidity()) { msRequired.reportValidity(); return; }
+        if (!otroInput.checkValidity()) { otroInput.reportValidity(); return; }
 
         // exito (frontend): mostrar popup y limpiar
         popup.hidden = false;
         form.reset();
         ms.classList.remove('open');
-        otroInput.hidden = true;
         msToggle.textContent = 'Elegí uno o varios servicios';
+        actualizarOtro();
         sincronizarRequired();
     });
 
