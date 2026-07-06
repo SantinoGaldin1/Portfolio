@@ -421,25 +421,14 @@ button:hover {
 }
 
 /* --- Carrusel 3D de servicios (ring con perspectiva) --- */
-@keyframes autoRun3d {
-    from { transform: perspective(1100px) rotateY(-360deg); }
-    to { transform: perspective(1100px) rotateY(0deg); }
-}
-
-@keyframes animateBrightness {
-    10% { filter: brightness(1); }
-    50% { filter: brightness(.12); }
-    90% { filter: brightness(1); }
-}
-
 .carousel-3d {
     position: relative;
     width: 250px;
     height: 300px;
     margin: 30px auto 0;
     transform-style: preserve-3d;
-    transform: perspective(1100px);
-    animation: autoRun3d 26s linear infinite;
+    transform: perspective(1100px) rotateY(0deg);
+    transition: transform .6s ease;
     will-change: transform;
 }
 
@@ -461,14 +450,13 @@ button:hover {
     justify-content: center;
     gap: 14px;
     transform-origin: center center;
-    animation: animateBrightness 26s linear infinite;
+    filter: brightness(.4);
+    transition: filter .5s ease;
     will-change: transform, filter;
 }
 
-.carousel-3d:hover,
-.carousel-3d:hover .s-card {
-    animation-play-state: paused !important;
-}
+/* la tarjeta al frente se ilumina */
+.carousel-3d .s-card.active { filter: brightness(1); }
 
 .carousel-3d .s-card i { font-size: 46px; color: rebeccapurple; }
 .carousel-3d .s-card h5 { font-size: 21px; margin: 0; }
@@ -484,7 +472,32 @@ button:hover {
 .carousel-3d .s-card:nth-child(3) { transform: translate(-50%, -50%) rotateY(120deg) translateZ(330px); animation-delay: -8.66s; }
 .carousel-3d .s-card:nth-child(4) { transform: translate(-50%, -50%) rotateY(180deg) translateZ(330px); animation-delay: -13s; }
 .carousel-3d .s-card:nth-child(5) { transform: translate(-50%, -50%) rotateY(240deg) translateZ(330px); animation-delay: -17.33s; }
-.carousel-3d .s-card:nth-child(6) { transform: translate(-50%, -50%) rotateY(300deg) translateZ(330px); animation-delay: -21.66s; }
+.carousel-3d .s-card:nth-child(6) { transform: translate(-50%, -50%) rotateY(300deg) translateZ(330px); }
+
+/* flechas para girar el ring paso a paso */
+.serv-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(20, 12, 35, .5);
+    border: 1px solid rgba(192, 141, 255, .5);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: .25s;
+}
+.serv-arrow:hover { background: rebeccapurple; }
+.serv-prev { left: 9%; }
+.serv-next { right: 9%; }
 
 .title h2{
     color: white;
@@ -1108,13 +1121,14 @@ footer p:nth-child(2){
         position: static;
         transform: none !important;
         animation: none;
+        filter: none;
         width: 100%;
         max-width: 340px;
         height: auto;
         padding: 22px 20px;
         gap: 10px;
     }
-    .carousel-3d:hover .s-card { animation: none; }
+    .serv-arrow { display: none; }
 
     /* --- Contacto + footer --- */
     .contacto { padding: 90px 5% 170px; }

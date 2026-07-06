@@ -50,6 +50,27 @@ window.addEventListener('wheel', (e) => {
     go(e.deltaY > 0 ? 1 : -1);
 }, { passive: false });
 
+// Carrusel 3D de servicios: gira paso a paso con las flechas (queda centrado)
+const ring = document.querySelector('.carousel-3d');
+if (ring) {
+    const cards = [...ring.querySelectorAll('.s-card')];
+    const n = cards.length;
+    const step = 360 / n;
+    let angle = 0;
+
+    const render = () => {
+        ring.style.transform = `perspective(1100px) rotateY(${angle}deg)`;
+        const idx = ((Math.round(-angle / step) % n) + n) % n;
+        cards.forEach((c, i) => c.classList.toggle('active', i === idx));
+    };
+    render();
+
+    const prev = document.querySelector('.serv-prev');
+    const next = document.querySelector('.serv-next');
+    if (prev) prev.addEventListener('click', () => { angle += step; render(); });
+    if (next) next.addEventListener('click', () => { angle -= step; render(); });
+}
+
 // menu hamburguesa (mobile): abre/cierra el desplegable
 const hamburger = document.querySelector('.hamburger');
 const navEl = document.querySelector('nav');
