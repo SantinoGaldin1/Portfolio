@@ -503,8 +503,8 @@ button:hover {
     transition: .25s;
 }
 .serv-arrow:hover { background: rebeccapurple; color: #fff; }
-.serv-prev { left: calc(50% - 405px); }
-.serv-next { right: calc(50% - 405px); }
+.serv-prev { left: max(16px, calc(50% - 470px)); }
+.serv-next { right: max(16px, calc(50% - 470px)); }
 
 .title h2{
     color: white;
