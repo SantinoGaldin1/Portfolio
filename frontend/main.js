@@ -149,18 +149,22 @@ if (snakes.length) {
 // Formas 3d: se desplazan un poco con el scroll (parallax, distinta velocidad c/u)
 const shapeEls = [...document.querySelectorAll('.shape')];
 if (shapeEls.length) {
-    // vector (x,y) distinto por forma: diagonales, hacia el centro, cruzadas
-    const vecs = [
-        { x: 0.11, y: 0.07, r: 0.014 },   // s1 arriba-izq -> baja hacia el centro
-        { x: -0.14, y: 0.05, r: -0.018 }, // s2 arriba-der -> cruza a la izq
-        { x: 0.13, y: -0.11, r: 0.02 },   // blob abajo-izq -> sube a la der
-        { x: -0.10, y: -0.08, r: -0.012 } // pill der -> sube a la izq
+    // oscilacion: cada forma vaga un poco en su direccion y vuelve al origen
+    // (seno del scroll -> queda dentro de un rectangulo chico, no deriva al centro)
+    const cfg = [
+        { ax: 60, fx: 0.0038, px: 0.0, ay: 34, fy: 0.0060, py: 1.2, ar: 5, fr: 0.0040 },
+        { ax: 52, fx: 0.0050, px: 0.8, ay: 56, fy: 0.0035, py: 0.0, ar: 6, fr: 0.0033 },
+        { ax: 46, fx: 0.0060, px: 2.0, ay: 50, fy: 0.0045, py: 0.5, ar: 6, fr: 0.0038 },
+        { ax: 56, fx: 0.0042, px: 1.5, ay: 42, fy: 0.0052, py: 2.0, ar: 5, fr: 0.0045 }
     ];
     const moverFormas = () => {
         const y = window.scrollY;
         shapeEls.forEach((s, i) => {
-            const v = vecs[i] || { x: 0, y: 0.1, r: 0.01 };
-            s.style.transform = `translate3d(${y * v.x}px, ${y * v.y}px, 0) rotate(${y * v.r}deg)`;
+            const c = cfg[i] || cfg[0];
+            const dx = c.ax * Math.sin(y * c.fx + c.px);
+            const dy = c.ay * Math.sin(y * c.fy + c.py);
+            const rot = c.ar * Math.sin(y * c.fr);
+            s.style.transform = `translate3d(${dx}px, ${dy}px, 0) rotate(${rot}deg)`;
         });
     };
     window.addEventListener('scroll', moverFormas, { passive: true });
