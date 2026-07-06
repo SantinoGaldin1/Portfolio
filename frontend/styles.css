@@ -23,26 +23,91 @@ html, body {
         #08070d;
 }
 
-/* marco violeta resplandeciente alrededor de la pagina */
+/* borde resplandeciente violeta (glow difuso desde los bordes, sin linea) */
 .page-frame {
     position: fixed;
-    inset: 12px;
+    inset: 0;
     z-index: 40;
     pointer-events: none;
-    border: 1.5px solid rgba(160, 100, 240, .4);
-    border-radius: 20px;
-    animation: frameGlow 4.5s ease-in-out infinite;
+    animation: frameGlow 5s ease-in-out infinite;
 }
 
 @keyframes frameGlow {
     0%, 100% {
-        box-shadow: inset 0 0 45px rgba(102, 51, 153, .3), inset 0 0 130px rgba(102, 51, 153, .12),
-                    0 0 20px rgba(102, 51, 153, .2);
+        box-shadow: inset 0 0 90px 8px rgba(120, 60, 200, .4),
+                    inset 0 0 220px 40px rgba(102, 51, 153, .18);
     }
     50% {
-        box-shadow: inset 0 0 65px rgba(150, 95, 230, .5), inset 0 0 170px rgba(102, 51, 153, .22),
-                    0 0 34px rgba(150, 95, 230, .35);
+        box-shadow: inset 0 0 120px 14px rgba(150, 95, 230, .6),
+                    inset 0 0 280px 60px rgba(120, 60, 200, .28);
     }
+}
+
+/* formas 3d glossy flotando en el fondo */
+.shapes {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: .5;
+    animation: floatShape 14s ease-in-out infinite;
+}
+.shape.s1 {
+    width: 360px; height: 360px; top: -90px; left: -90px;
+    background: radial-gradient(circle at 34% 30%, #ffffff, #cbb6ff 42%, #6a3fb5 100%);
+}
+.shape.s2 {
+    width: 230px; height: 230px; top: 8%; right: -70px;
+    background: radial-gradient(circle at 36% 30%, #ffffff, #d8ccff 45%, #7b4bd0 100%);
+    animation-delay: -3s;
+}
+.shape.s3 {
+    width: 300px; height: 300px; bottom: -100px; left: 6%;
+    background: radial-gradient(circle at 34% 30%, #f2ecff, #b9a3ee 46%, #5a34a8 100%);
+    animation-delay: -6s;
+}
+.shape.s4 {
+    width: 180px; height: 180px; bottom: 10%; right: 10%;
+    background: radial-gradient(circle at 36% 30%, #ffffff, #cbb6ff 45%, #6a3fb5 100%);
+    animation-delay: -9s;
+}
+.shape.pill {
+    width: 150px; height: 66px; border-radius: 40px; top: 24%; left: 42%;
+    background: linear-gradient(135deg, #7d5cff, #4a34c0);
+    opacity: .4;
+    animation-delay: -4.5s;
+}
+@keyframes floatShape {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-26px) rotate(8deg); }
+}
+
+/* lineas tipo circuito que avanzan como viborita al scrollear */
+.circuit {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+.circuit .track {
+    fill: none;
+    stroke: rgba(150, 95, 230, .13);
+    stroke-width: 2;
+}
+.circuit .snake {
+    fill: none;
+    stroke: rgba(185, 130, 255, .95);
+    stroke-width: 3;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 8px rgba(175, 115, 250, .9));
 }
 
 /* linea de progreso vertical */

@@ -124,6 +124,28 @@ if (scrollFill) {
     actualizarProgreso();
 }
 
+// Lineas tipo circuito: un segmento (viborita) avanza por el trazo,
+// mas rapido al scrollear y con un drift constante.
+const snakes = [...document.querySelectorAll('.circuit .snake')].map((el) => {
+    const len = el.getTotalLength();
+    el.style.strokeDasharray = `${len * 0.14} ${len}`;
+    return { el, len };
+});
+if (snakes.length) {
+    let t = 0;
+    const animarSnakes = () => {
+        t += 1;
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        const p = h > 0 ? window.scrollY / h : 0;
+        snakes.forEach(({ el, len }, i) => {
+            const dir = i % 2 ? -1 : 1;
+            el.style.strokeDashoffset = -dir * (p * len * 1.6 + t * 1.4);
+        });
+        requestAnimationFrame(animarSnakes);
+    };
+    animarSnakes();
+}
+
 // Formulario de contacto (solo frontend por ahora; sin envio real).
 const form = document.getElementById('contact-form');
 if (form) {
