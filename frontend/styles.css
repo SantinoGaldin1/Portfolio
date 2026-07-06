@@ -1109,9 +1109,8 @@ footer p:nth-child(2){
         min-height: 0;
     }
     .title h2 { width: auto; font-size: 1.9rem; }
-    /* flechas pegadas al ring en pantallas chicas */
-    .serv-prev { left: max(10px, calc(50% - 160px)); }
-    .serv-next { right: max(10px, calc(50% - 160px)); }
+    /* en mobile se gira con el dedo, sin flechas */
+    .serv-arrow { display: none; }
 
     /* --- Contacto + footer --- */
     .contacto { padding: 90px 5% 170px; }

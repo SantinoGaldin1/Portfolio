@@ -69,6 +69,25 @@ if (ring) {
     const next = document.querySelector('.serv-next');
     if (prev) prev.addEventListener('click', () => { angle += step; render(); });
     if (next) next.addEventListener('click', () => { angle -= step; render(); });
+
+    // mobile: deslizar el dedo pasa una tarjeta (queda centrada)
+    const servicios = document.querySelector('.servicios');
+    let sx = null, sy = null;
+    servicios.addEventListener('touchstart', (e) => {
+        sx = e.touches[0].clientX;
+        sy = e.touches[0].clientY;
+    }, { passive: true });
+    servicios.addEventListener('touchend', (e) => {
+        if (sx === null) return;
+        const dx = e.changedTouches[0].clientX - sx;
+        const dy = e.changedTouches[0].clientY - sy;
+        // solo si el gesto es mayormente horizontal (no molesta el scroll vertical)
+        if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+            angle += dx > 0 ? step : -step;
+            render();
+        }
+        sx = sy = null;
+    }, { passive: true });
 }
 
 // menu hamburguesa (mobile): abre/cierra el desplegable
