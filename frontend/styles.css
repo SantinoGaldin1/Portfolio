@@ -46,39 +46,30 @@ html {
 }
 .shape {
     position: absolute;
-    border-radius: 50%;
     opacity: .5;
     will-change: transform;
-    animation: floatShape 14s ease-in-out infinite;
+    transition: transform .3s ease-out;
 }
+/* 2 circulos */
 .shape.s1 {
-    width: 360px; height: 360px; top: -90px; left: -90px;
+    width: 340px; height: 340px; border-radius: 50%; top: 2%; left: -80px;
     background: radial-gradient(circle at 34% 30%, #ffffff, #cbb6ff 42%, #6a3fb5 100%);
 }
 .shape.s2 {
-    width: 230px; height: 230px; top: 8%; right: -70px;
+    width: 210px; height: 210px; border-radius: 50%; top: 14%; right: -60px;
     background: radial-gradient(circle at 36% 30%, #ffffff, #d8ccff 45%, #7b4bd0 100%);
-    animation-delay: -3s;
 }
-.shape.s3 {
-    width: 300px; height: 300px; bottom: -100px; left: 6%;
+/* blob organico (silueta irregular) */
+.shape.blob {
+    width: 300px; height: 300px; bottom: -90px; left: 5%;
+    border-radius: 62% 38% 55% 45% / 55% 48% 52% 45%;
     background: radial-gradient(circle at 34% 30%, #f2ecff, #b9a3ee 46%, #5a34a8 100%);
-    animation-delay: -6s;
 }
-.shape.s4 {
-    width: 180px; height: 180px; bottom: 10%; right: 10%;
-    background: radial-gradient(circle at 36% 30%, #ffffff, #cbb6ff 45%, #6a3fb5 100%);
-    animation-delay: -9s;
-}
+/* pill alargada */
 .shape.pill {
-    width: 150px; height: 66px; border-radius: 40px; top: 24%; left: 42%;
-    background: linear-gradient(135deg, #7d5cff, #4a34c0);
-    opacity: .4;
-    animation-delay: -4.5s;
-}
-@keyframes floatShape {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-26px) rotate(8deg); }
+    width: 160px; height: 70px; border-radius: 40px; top: 60%; right: 9%;
+    background: linear-gradient(135deg, #8a68ff, #4a34c0);
+    opacity: .42;
 }
 
 /* lineas tipo circuito que avanzan como viborita al scrollear */

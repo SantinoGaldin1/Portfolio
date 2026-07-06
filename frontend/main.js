@@ -146,6 +146,21 @@ if (snakes.length) {
     animarSnakes();
 }
 
+// Formas 3d: se desplazan un poco con el scroll (parallax, distinta velocidad c/u)
+const shapeEls = [...document.querySelectorAll('.shape')];
+if (shapeEls.length) {
+    const speeds = [-0.08, 0.12, -0.14, 0.10];
+    const moverFormas = () => {
+        const y = window.scrollY;
+        shapeEls.forEach((s, i) => {
+            const sp = speeds[i] ?? 0.1;
+            s.style.transform = `translate3d(0, ${y * sp}px, 0) rotate(${y * 0.015 * (i % 2 ? 1 : -1)}deg)`;
+        });
+    };
+    window.addEventListener('scroll', moverFormas, { passive: true });
+    moverFormas();
+}
+
 // Formulario de contacto (solo frontend por ahora; sin envio real).
 const form = document.getElementById('contact-form');
 if (form) {
