@@ -1102,41 +1102,16 @@ footer p:nth-child(2){
     .sobremi-texto h5 { font-size: 1.1rem; margin-bottom: 18px; }
     .sobremi-texto p { font-size: 1rem; line-height: 26px; margin-bottom: 0; }
 
-    /* --- Servicios: sin ring 3D en mobile; tarjetas apiladas --- */
+    /* --- Servicios: mismo ring 3D que desktop, ocupando una pantalla --- */
     .servicios {
-        padding: 90px 5%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: auto;
-        min-height: 100vh;
+        padding: 100px 0;
+        height: 100vh;
+        min-height: 0;
     }
-    .servicios .title { position: static; }
-    .title h2 { width: auto; font-size: 1.9rem; margin: 0 auto 20px; }
-    .carousel-3d {
-        transform: none;
-        transform-style: flat;
-        animation: none;
-        width: 100%;
-        height: auto;
-        margin: 10px auto 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-    }
-    .carousel-3d .s-card {
-        position: static;
-        transform: none !important;
-        animation: none;
-        filter: none;
-        width: 100%;
-        max-width: 340px;
-        height: auto;
-        padding: 22px 20px;
-        gap: 10px;
-    }
-    .serv-arrow { display: none; }
+    .title h2 { width: auto; font-size: 1.9rem; }
+    /* flechas pegadas al ring en pantallas chicas */
+    .serv-prev { left: max(10px, calc(50% - 160px)); }
+    .serv-next { right: max(10px, calc(50% - 160px)); }
 
     /* --- Contacto + footer --- */
     .contacto { padding: 90px 5% 170px; }

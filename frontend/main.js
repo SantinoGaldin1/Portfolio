@@ -59,18 +59,11 @@ if (ring) {
     let angle = 0;
 
     const render = () => {
-        // en mobile el ring se aplana (CSS); no aplicar transform inline (sino se espeja)
-        if (window.innerWidth <= 900) {
-            ring.style.transform = '';
-            cards.forEach((c) => c.classList.remove('active'));
-            return;
-        }
         ring.style.transform = `perspective(1100px) rotateY(${angle}deg)`;
         const idx = ((Math.round(-angle / step) % n) + n) % n;
         cards.forEach((c, i) => c.classList.toggle('active', i === idx));
     };
     render();
-    window.addEventListener('resize', render);
 
     const prev = document.querySelector('.serv-prev');
     const next = document.querySelector('.serv-next');
