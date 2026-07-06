@@ -490,22 +490,21 @@ button:hover {
     width: 54px;
     height: 54px;
     border-radius: 50%;
-    background: rgba(20, 12, 35, .5);
-    border: 1px solid rgba(192, 141, 255, .5);
-    color: #fff;
+    background: #fff;
+    border: none;
+    color: rebeccapurple;
     font-size: 20px;
     cursor: pointer;
     z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .4);
     transition: .25s;
 }
-.serv-arrow:hover { background: rebeccapurple; }
-.serv-prev { left: calc(50% - 185px); }
-.serv-next { right: calc(50% - 185px); }
+.serv-arrow:hover { background: rebeccapurple; color: #fff; }
+.serv-prev { left: calc(50% - 405px); }
+.serv-next { right: calc(50% - 405px); }
 
 .title h2{
     color: white;
