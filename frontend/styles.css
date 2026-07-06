@@ -420,6 +420,14 @@ button:hover {
     background-position: center;
 }
 
+/* titulo arriba, ring centrado en la pantalla */
+.servicios .title {
+    position: absolute;
+    top: 9vh;
+    left: 0;
+    width: 100%;
+}
+
 /* --- Carrusel 3D de servicios (ring con perspectiva) --- */
 .carousel-3d {
     position: relative;
@@ -496,8 +504,8 @@ button:hover {
     transition: .25s;
 }
 .serv-arrow:hover { background: rebeccapurple; }
-.serv-prev { left: 9%; }
-.serv-next { right: 9%; }
+.serv-prev { left: calc(50% - 185px); }
+.serv-next { right: calc(50% - 185px); }
 
 .title h2{
     color: white;
@@ -1104,6 +1112,7 @@ footer p:nth-child(2){
         height: auto;
         min-height: 100vh;
     }
+    .servicios .title { position: static; }
     .title h2 { width: auto; font-size: 1.9rem; margin: 0 auto 20px; }
     .carousel-3d {
         transform: none;
