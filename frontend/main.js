@@ -149,12 +149,18 @@ if (snakes.length) {
 // Formas 3d: se desplazan un poco con el scroll (parallax, distinta velocidad c/u)
 const shapeEls = [...document.querySelectorAll('.shape')];
 if (shapeEls.length) {
-    const speeds = [-0.08, 0.12, -0.14, 0.10];
+    // vector (x,y) distinto por forma: diagonales, hacia el centro, cruzadas
+    const vecs = [
+        { x: 0.11, y: 0.07, r: 0.014 },   // s1 arriba-izq -> baja hacia el centro
+        { x: -0.14, y: 0.05, r: -0.018 }, // s2 arriba-der -> cruza a la izq
+        { x: 0.13, y: -0.11, r: 0.02 },   // blob abajo-izq -> sube a la der
+        { x: -0.10, y: -0.08, r: -0.012 } // pill der -> sube a la izq
+    ];
     const moverFormas = () => {
         const y = window.scrollY;
         shapeEls.forEach((s, i) => {
-            const sp = speeds[i] ?? 0.1;
-            s.style.transform = `translate3d(0, ${y * sp}px, 0) rotate(${y * 0.015 * (i % 2 ? 1 : -1)}deg)`;
+            const v = vecs[i] || { x: 0, y: 0.1, r: 0.01 };
+            s.style.transform = `translate3d(${y * v.x}px, ${y * v.y}px, 0) rotate(${y * v.r}deg)`;
         });
     };
     window.addEventListener('scroll', moverFormas, { passive: true });
