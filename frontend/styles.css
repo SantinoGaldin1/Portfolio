@@ -7,6 +7,65 @@
 
 html, body {
     overflow-x: hidden;
+    background: #08070d;
+}
+
+/* fondo unificado oscuro con formas 3d ambientales (violeta/gris) */
+.bg-3d {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 18% 22%, rgba(120, 60, 200, .28), transparent 42%),
+        radial-gradient(circle at 82% 68%, rgba(80, 60, 170, .24), transparent 48%),
+        radial-gradient(circle at 62% 12%, rgba(150, 95, 230, .16), transparent 40%),
+        radial-gradient(circle at 35% 88%, rgba(90, 70, 160, .18), transparent 45%),
+        #08070d;
+}
+
+/* marco violeta resplandeciente alrededor de la pagina */
+.page-frame {
+    position: fixed;
+    inset: 12px;
+    z-index: 40;
+    pointer-events: none;
+    border: 1.5px solid rgba(160, 100, 240, .4);
+    border-radius: 20px;
+    animation: frameGlow 4.5s ease-in-out infinite;
+}
+
+@keyframes frameGlow {
+    0%, 100% {
+        box-shadow: inset 0 0 45px rgba(102, 51, 153, .3), inset 0 0 130px rgba(102, 51, 153, .12),
+                    0 0 20px rgba(102, 51, 153, .2);
+    }
+    50% {
+        box-shadow: inset 0 0 65px rgba(150, 95, 230, .5), inset 0 0 170px rgba(102, 51, 153, .22),
+                    0 0 34px rgba(150, 95, 230, .35);
+    }
+}
+
+/* linea de progreso vertical */
+.scroll-line {
+    position: fixed;
+    left: 26px;
+    top: 15vh;
+    bottom: 15vh;
+    width: 2px;
+    background: rgba(255, 255, 255, .1);
+    border-radius: 2px;
+    z-index: 35;
+}
+.scroll-line-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-radius: 2px;
+    background: linear-gradient(rgba(160, 100, 240, 1), rgba(102, 51, 153, .5));
+    box-shadow: 0 0 10px rgba(160, 100, 240, .85);
+    transition: height .1s linear;
 }
 
 /* Landing full-page: el scroll pasa de pantalla con tween suave (ver main.js) */
@@ -66,9 +125,7 @@ html, body {
 .hero {
     height: 100vh;
     width: 100%;
-    background-image: url(milad-fakurian-DjjaZybYx4I-unsplash\ \(1\).jpg);
-    background-size: cover;
-    background-position: center;
+    background: transparent;
 }
 
 nav {
@@ -342,9 +399,7 @@ h4 {
     height: 100vh;
     width: 100%;
     padding: 100px 0px;
-    background-image: url(shubham-dhage-0aQ1lxP0wTs-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
+    background: transparent;
 }
 
 .about img {
@@ -415,9 +470,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url(milad-fakurian-t55GeRpETn0-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
+    background: transparent;
 }
 
 /* titulo arriba, ring centrado en la pantalla */
@@ -578,9 +631,7 @@ h5{
     align-items: center;
     justify-content: center;
     padding: 90px 0;
-    background-image: url(stanislav-oNFNMJg6uCo-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
+    background: transparent;
 }
 
 .skills-wrap {
@@ -649,7 +700,7 @@ h5{
     width: 100%;
     height: 100vh;
     padding: 40px 20px 175px;
-    background: #171717 url(milad-fakurian-4x3jVxe0PiM-unsplash.jpg) center/cover;
+    background: transparent;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -985,6 +1036,8 @@ footer p:nth-child(2){
 
     /* --- Header / nav con hamburguesa --- */
     nav { padding: 0; }
+
+    .scroll-line { display: none; }
 
     /* logo centrado arriba */
     .logo {

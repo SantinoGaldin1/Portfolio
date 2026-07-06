@@ -111,6 +111,19 @@ document.querySelectorAll('.nav-arrow, .logo, nav ul a').forEach((a) => {
 // ponytail: solo rueda de mouse. Touch/movil usa scroll nativo (sin tween);
 // agregar handler touchstart/touchmove si hace falta en celular.
 
+// Linea de progreso: recorre la pagina segun el scroll.
+const scrollFill = document.querySelector('.scroll-line-fill');
+if (scrollFill) {
+    const actualizarProgreso = () => {
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        const p = h > 0 ? window.scrollY / h : 0;
+        scrollFill.style.height = `${Math.min(p * 100, 100)}%`;
+    };
+    window.addEventListener('scroll', actualizarProgreso, { passive: true });
+    window.addEventListener('resize', actualizarProgreso);
+    actualizarProgreso();
+}
+
 // Formulario de contacto (solo frontend por ahora; sin envio real).
 const form = document.getElementById('contact-form');
 if (form) {
