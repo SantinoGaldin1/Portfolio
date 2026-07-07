@@ -151,20 +151,20 @@ const shapeEls = [...document.querySelectorAll('.shape')];
 if (shapeEls.length) {
     // oscilacion: cada forma vaga un poco en su direccion y vuelve al origen
     // (seno del scroll -> queda dentro de un rectangulo chico, no deriva al centro)
+    // una sola frecuencia por forma (x, y y giro sincronizados) => un unico
+    // movimiento diagonal de ida y vuelta por scroll. Direccion via signo de ax/ay.
     const cfg = [
-        { ax: 60, fx: 0.0038, px: 0.0, ay: 34, fy: 0.0060, py: 1.2, ar: 5, fr: 0.0040 },
-        { ax: 52, fx: 0.0050, px: 0.8, ay: 56, fy: 0.0035, py: 0.0, ar: 6, fr: 0.0033 },
-        { ax: 46, fx: 0.0060, px: 2.0, ay: 50, fy: 0.0045, py: 0.5, ar: 6, fr: 0.0038 },
-        { ax: 56, fx: 0.0042, px: 1.5, ay: 42, fy: 0.0052, py: 2.0, ar: 5, fr: 0.0045 }
+        { ax: 62, ay: 40, r: 5, f: 0.0018 },   // baja-derecha
+        { ax: -56, ay: 52, r: -6, f: 0.0021 }, // baja-izquierda
+        { ax: 50, ay: -48, r: 6, f: 0.0016 },  // sube-derecha
+        { ax: -58, ay: -42, r: -5, f: 0.0023 } // sube-izquierda
     ];
     const moverFormas = () => {
         const y = window.scrollY;
         shapeEls.forEach((s, i) => {
             const c = cfg[i] || cfg[0];
-            const dx = c.ax * Math.sin(y * c.fx + c.px);
-            const dy = c.ay * Math.sin(y * c.fy + c.py);
-            const rot = c.ar * Math.sin(y * c.fr);
-            s.style.transform = `translate3d(${dx}px, ${dy}px, 0) rotate(${rot}deg)`;
+            const o = Math.sin(y * c.f);
+            s.style.transform = `translate3d(${c.ax * o}px, ${c.ay * o}px, 0) rotate(${c.r * o}deg)`;
         });
     };
     window.addEventListener('scroll', moverFormas, { passive: true });
