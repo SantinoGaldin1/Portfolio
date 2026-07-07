@@ -58,15 +58,12 @@ if (ring) {
     const step = 360 / n;
     let angle = 0;
 
-    // en mobile achico el ring para que no ocupe tanta pantalla
-    const escala = () => (window.innerWidth <= 560 ? 0.6 : window.innerWidth <= 900 ? 0.72 : 1);
     const render = () => {
-        ring.style.transform = `perspective(1100px) rotateY(${angle}deg) scale(${escala()})`;
+        ring.style.transform = `perspective(1100px) rotateY(${angle}deg)`;
         const idx = ((Math.round(-angle / step) % n) + n) % n;
         cards.forEach((c, i) => c.classList.toggle('active', i === idx));
     };
     render();
-    window.addEventListener('resize', render);
 
     const prev = document.querySelector('.serv-prev');
     const next = document.querySelector('.serv-next');
