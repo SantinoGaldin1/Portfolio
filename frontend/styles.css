@@ -93,28 +93,6 @@ html {
     stroke-linecap: round;
 }
 
-/* linea de progreso vertical */
-.scroll-line {
-    position: fixed;
-    left: 26px;
-    top: 15vh;
-    bottom: 15vh;
-    width: 2px;
-    background: rgba(255, 255, 255, .1);
-    border-radius: 2px;
-    z-index: 35;
-}
-.scroll-line-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    border-radius: 2px;
-    background: linear-gradient(rgba(160, 100, 240, 1), rgba(102, 51, 153, .5));
-    box-shadow: 0 0 10px rgba(160, 100, 240, .85);
-    transition: height .1s linear;
-}
 
 /* Landing full-page: el scroll pasa de pantalla con tween suave (ver main.js) */
 .screen {
@@ -763,7 +741,8 @@ h5{
     border: 1px solid rgba(192, 141, 255, .35);
     border-radius: 18px;
     padding: 30px 28px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, .55), 0 0 30px rgba(102, 51, 153, .25);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .55), 0 0 30px rgba(102, 51, 153, .25),
+                0 0 22px rgba(255, 255, 255, .18);
     z-index: 2;
 }
 
@@ -1085,8 +1064,6 @@ footer p:nth-child(2){
     /* --- Header / nav con hamburguesa --- */
     nav { padding: 0; }
 
-    .scroll-line { display: none; }
-
     /* logo centrado arriba */
     .logo {
         top: 18px;
@@ -1157,13 +1134,6 @@ footer p:nth-child(2){
         flex-direction: column;
         justify-content: center;
         padding-bottom: 3vh;
-    }
-    .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, .45), rgba(0, 0, 0, .6));
-        z-index: 0;
     }
     /* texto y carrusel agrupados y centrados (levemente arriba por padding-bottom) */
     .content {

@@ -58,12 +58,15 @@ if (ring) {
     const step = 360 / n;
     let angle = 0;
 
+    // en mobile achico el ring para que no ocupe tanta pantalla
+    const escala = () => (window.innerWidth <= 560 ? 0.6 : window.innerWidth <= 900 ? 0.72 : 1);
     const render = () => {
-        ring.style.transform = `perspective(1100px) rotateY(${angle}deg)`;
+        ring.style.transform = `perspective(1100px) rotateY(${angle}deg) scale(${escala()})`;
         const idx = ((Math.round(-angle / step) % n) + n) % n;
         cards.forEach((c, i) => c.classList.toggle('active', i === idx));
     };
     render();
+    window.addEventListener('resize', render);
 
     const prev = document.querySelector('.serv-prev');
     const next = document.querySelector('.serv-next');
@@ -110,19 +113,6 @@ document.querySelectorAll('.nav-arrow, .logo, nav ul a').forEach((a) => {
 
 // ponytail: solo rueda de mouse. Touch/movil usa scroll nativo (sin tween);
 // agregar handler touchstart/touchmove si hace falta en celular.
-
-// Linea de progreso: recorre la pagina segun el scroll.
-const scrollFill = document.querySelector('.scroll-line-fill');
-if (scrollFill) {
-    const actualizarProgreso = () => {
-        const h = document.documentElement.scrollHeight - window.innerHeight;
-        const p = h > 0 ? window.scrollY / h : 0;
-        scrollFill.style.height = `${Math.min(p * 100, 100)}%`;
-    };
-    window.addEventListener('scroll', actualizarProgreso, { passive: true });
-    window.addEventListener('resize', actualizarProgreso);
-    actualizarProgreso();
-}
 
 // Lineas tipo circuito: un segmento (viborita) avanza por el trazo,
 // mas rapido al scrollear y con un drift constante.
